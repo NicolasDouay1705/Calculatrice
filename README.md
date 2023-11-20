@@ -1,3 +1,3 @@
 # Calculatrice
-##Une calculatrice très simple 
+## Une calculatrice très simple 
 Fait avec JavaFX.
