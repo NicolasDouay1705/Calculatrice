@@ -22,7 +22,7 @@ public class Main extends Application {
         primaryStage.setTitle("Calculatrice");
 
         Label resultat = new Label("Résultat");
-        #
+
         Button bouton0 = new Button("0");
         Button bouton1 = new Button("1");
         Button bouton2 = new Button("2");
@@ -67,8 +67,12 @@ public class Main extends Application {
         FlowPane affichage = new FlowPane();
 
 
-        affichage.getChildren().addAll(resultat,reset,supp,memoire,diviser,bouton7,bouton8,bouton9,fois,bouton4,bouton5,bouton6,plus,bouton1,bouton2,bouton3,moins,bouton0,virgule,egal);
-
+        affichage.getChildren().add(resultat); // 1ere ligne
+        affichage.getChildren().addAll(reset,supp,memoire,diviser); // 2e ligne
+        affichage.getChildren().addAll(bouton7,bouton8,bouton9,fois); // 3e ligne
+        affichage.getChildren().addAll(bouton4,bouton5,bouton6,plus); // 4e ligne
+        affichage.getChildren().addAll(bouton1,bouton2,bouton3,moins); // 5e ligne
+        affichage.getChildren().addAll(bouton0,virgule,egal); // 6e ligne
 
         Scene theScene = new Scene(affichage,400,600,true);
         primaryStage.setScene(theScene);
