@@ -2,6 +2,9 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.text.Text;
@@ -18,7 +21,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Calculatrice");
 
-        Text resultat = new Text("Résultat");
+        Label resultat = new Label("Résultat");
+        #
         Button bouton0 = new Button("0");
         Button bouton1 = new Button("1");
         Button bouton2 = new Button("2");
@@ -29,24 +33,44 @@ public class Main extends Application {
         Button bouton7 = new Button("7");
         Button bouton8 = new Button("8");
         Button bouton9 = new Button("9");
+        Button virgule = new Button(",");
+        Button plus = new Button("+");
+        Button moins = new Button("-");
+        Button fois = new Button("*");
+        Button diviser = new Button(":");
+        Button egal = new Button("=");
+        Button reset = new Button("AC");
+        Button supp = new Button("C");
+        Button memoire = new Button("M+/M-");
 
-        bouton0.setMaxSize(100,100);
-        bouton1.setMaxSize(100,100);
-        bouton2.setMaxSize(100,100);
-        bouton3.setMaxSize(100,100);
-        bouton4.setMaxSize(100,100);
-        bouton5.setMaxSize(100,100);
-        bouton6.setMaxSize(100,100);
-        bouton7.setMaxSize(100,100);
-        bouton8.setMaxSize(100,100);
-        bouton9.setMaxSize(100,100);
+        resultat.setPrefSize(400,100);
+        bouton0.setPrefSize(100,100);
+        bouton1.setPrefSize(100,100);
+        bouton2.setPrefSize(100,100);
+        bouton3.setPrefSize(100,100);
+        bouton4.setPrefSize(100,100);
+        bouton5.setPrefSize(100,100);
+        bouton6.setPrefSize(100,100);
+        bouton7.setPrefSize(100,100);
+        bouton8.setPrefSize(100,100);
+        bouton9.setPrefSize(100,100);
+        virgule.setPrefSize(100,100);
+        plus.setPrefSize(100,100);
+        moins.setPrefSize(100,100);
+        fois.setPrefSize(100,100);
+        diviser.setPrefSize(100,100);
+        egal.setPrefSize(200,100);
+        reset.setPrefSize(100,100);
+        supp.setPrefSize(100,100);
+        memoire.setPrefSize(100,100);
 
-        TilePane root = new TilePane();
-        root.setPrefTileWidth(100);
-        root.setPrefTileHeight(100);
+        FlowPane affichage = new FlowPane();
 
-        root.getChildren().addAll(resultat,bouton0,bouton1,bouton2,bouton3,bouton4,bouton5,bouton6,bouton7,bouton8,bouton9);
-        Scene theScene = new Scene(root,400,400,true);
+
+        affichage.getChildren().addAll(resultat,reset,supp,memoire,diviser,bouton7,bouton8,bouton9,fois,bouton4,bouton5,bouton6,plus,bouton1,bouton2,bouton3,moins,bouton0,virgule,egal);
+
+
+        Scene theScene = new Scene(affichage,400,600,true);
         primaryStage.setScene(theScene);
 
 
