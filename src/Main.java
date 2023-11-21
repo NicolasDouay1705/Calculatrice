@@ -3,25 +3,24 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.text.Font;
 
-import java.awt.*;
-import java.util.regex.Pattern;
-
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main extends Application {
 
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Calculatrice");
 
+        GridPane affichage = new GridPane();
+        affichage.addColumn(4);
+        affichage.addRow(6);
+        Scene theScene = new Scene(affichage,400,600,true);
+
         Label resultat = new Label("Résultat");
         resultat.setFont(Font.font("Cambria", 32));
         resultat.setAlignment(Pos.BASELINE_RIGHT);
-        resultat.setPrefSize(380,100);
+        resultat.setPrefSize(affichage.getWidth()-20,100);
 
         Button bouton0 = new Button("0");
         bouton0.setPrefSize(100,100);
@@ -99,20 +98,34 @@ public class Main extends Application {
         memoire.setPrefSize(100,100);
         memoire.setFont(Font.font("Cambria",20));
 
+        // 1ere lign
+        affichage.add(resultat,0,0,4,1);
+        // 2e ligne
+        affichage.add(reset,0,1);
+        affichage.add(supp,1,1);
+        affichage.add(memoire,2,1);
+        affichage.add(diviser,3,1);
+        // 3e ligne
+        affichage.add(bouton7,0,2);
+        affichage.add(bouton8,1,2);
+        affichage.add(bouton9,2,2);
+        affichage.add(fois,3,2);
+        // 4e ligne
+        affichage.add(bouton4,0,3);
+        affichage.add(bouton5,1,3);
+        affichage.add(bouton6,2,3);
+        affichage.add(plus,3,3);
+        // 5e ligne
+        affichage.add(bouton1,0,4);
+        affichage.add(bouton2,1,4);
+        affichage.add(bouton3,2,4);
+        affichage.add(moins,3,4);
+        // 6e ligne
+        affichage.add(bouton0,0,5);
+        affichage.add(virgule,1,5);
+        affichage.add(egal,2,5,2,1);
 
-        FlowPane affichage = new FlowPane();
-
-
-        affichage.getChildren().add(resultat);  // 1ere ligne
-        affichage.getChildren().addAll(reset,supp,memoire,diviser); // 2e ligne
-        affichage.getChildren().addAll(bouton7,bouton8,bouton9,fois); // 3e ligne
-        affichage.getChildren().addAll(bouton4,bouton5,bouton6,plus); // 4e ligne
-        affichage.getChildren().addAll(bouton1,bouton2,bouton3,moins); // 5e ligne
-        affichage.getChildren().addAll(bouton0,virgule,egal); // 6e ligne
-
-        Scene theScene = new Scene(affichage,400,600,true);
         primaryStage.setScene(theScene);
-
 
         primaryStage.show();
     }
